@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/shinhagunn/go-learn/grpc/example/calculator"
+	hello "github.com/shinhagunn/go-learn/grpc/gateway/proto"
 	"google.golang.org/grpc"
 )
 
@@ -15,15 +15,9 @@ func main() {
 	}
 	defer conn.Close()
 
-	client := calculator.NewCalculatorClient(conn)
+	client := hello.NewHelloServiceClient(conn)
 
-	num1 := int32(10)
-	num2 := int32(20)
-
-	res, err := client.Add(context.Background(), &calculator.AddRequest{
-		Num1: num1,
-		Num2: num2,
-	})
+	res, err := client.Hello(context.TODO(), &hello.HelloRequest{Name: "hoang"})
 	if err != nil {
 		panic(err)
 	}

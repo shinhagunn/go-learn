@@ -1,4 +1,4 @@
-package function
+package main
 
 import "fmt"
 
@@ -10,9 +10,9 @@ func CalValues(a int, b int) (int, int) {
 }
 
 // Function named
-func CalNamed(a int, b int) (sum int, diff int) {
+func CalNamed(a int, b int) (sum int, sub int) {
 	sum = a + b
-	diff = a - b
+	sub = a - b
 	return
 }
 

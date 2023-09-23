@@ -18,7 +18,7 @@ func giveTasks(c chan int) {
 	// Remember close channel when done tasks
 	defer func() {
 		close(c)
-		fmt.Println("Done all task")
+		fmt.Println("Out of task")
 	}()
 
 	for i := 1; i <= numberOfTasks; i++ {

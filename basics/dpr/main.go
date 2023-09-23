@@ -16,6 +16,27 @@ func a() (i int) {
 	return 1
 }
 
+// Test defer, panic, recover
+func dpr1() {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Printf("Recover: %d\n", r)
+		}
+	}()
+
+	dpr2(0)
+}
+
+func dpr2(number int) {
+	for i := 0; i < 5; i++ {
+		if number > 3 {
+			panic(number)
+		}
+
+		number++
+	}
+}
+
 func main() {
 	fmt.Println("Hello defer!")
 }
